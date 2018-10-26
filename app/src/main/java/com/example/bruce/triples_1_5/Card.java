@@ -4,15 +4,14 @@ public class Card {
 
    private Shape mShape;
    private Color mColor;
-   private int mNumber, mAlpha, mImage, mSelectedImageID;
+   private int mNumber, mAlpha, mImage;
+   boolean mSelectedImageID;
 
-    public Card(Shape shape, Color color, int number, int alpha, int image, int selectedImageID) {
+    public Card(Shape shape, Color color, int number, int alpha) {
         this.mShape = shape;
         this.mColor = color;
         this.mNumber = number;
         this.mAlpha = alpha;
-        this.mImage = image;
-        this.mSelectedImageID = selectedImageID;
     }
 
     /***************************************
@@ -41,7 +40,7 @@ public class Card {
 
     protected int getNumber(){
         return mNumber;
-    }
+}
 
     protected int getAlpha(){
         return mAlpha;
@@ -51,7 +50,7 @@ public class Card {
         return mImage;
     }
 
-    protected int getSelectedImageID(){
+    protected boolean getSelectedImageID(){
         return mSelectedImageID;
     }
 
