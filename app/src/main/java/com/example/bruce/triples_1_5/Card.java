@@ -2,16 +2,19 @@ package com.example.bruce.triples_1_5;
 
 public class Card {
 
-   private Shape mShape;
-   private Color mColor;
-   private int mNumber, mAlpha, mImage;
-   boolean mSelectedImageID;
+    private Shape mShape;
+    private Color mColor;
+    private int mNumber, mAlpha, mImage, mSelectedImageID;
+    boolean  mIsSelected;
 
-    public Card(Shape shape, Color color, int number, int alpha) {
+
+    public Card(Shape shape, Color color, int number, int alpha, int image, int selectedImageID) {
         this.mShape = shape;
         this.mColor = color;
         this.mNumber = number;
         this.mAlpha = alpha;
+        this.mImage = image;
+        this.mSelectedImageID = selectedImageID;
     }
 
     /***************************************
@@ -31,35 +34,37 @@ public class Card {
      **********************************/
 
     protected Shape getShape() {
-        return mShape;
+        return this.mShape;
     }
 
     protected Color getColor(){
-        return mColor;
+        return this.mColor;
     }
 
     protected int getNumber(){
-        return mNumber;
-}
+        return this.mNumber;
+    }
 
     protected int getAlpha(){
-        return mAlpha;
+        return this.mAlpha;
     }
 
     protected int getImageID(){
-        return mImage;
+        return this.mImage;
     }
 
-    protected boolean getSelectedImageID(){
-        return mSelectedImageID;
+    protected int getSelectedImageID(){
+        return this.mSelectedImageID;
     }
 
     protected boolean getIsSelected(){
-        return false;
+        return this.mIsSelected;
     }
 
-    protected boolean setIsSelected(){
-        return true;
+    protected void setIsSelected(boolean s)
+    {
+        this.mIsSelected = s;
+
     }
 }
 
