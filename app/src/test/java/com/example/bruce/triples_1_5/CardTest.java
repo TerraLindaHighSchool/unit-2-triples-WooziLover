@@ -79,6 +79,8 @@ public class CardTest {
 
     @Test
     public void setAndGetIsSelected(){
+        one[1].setIsSelected(false);
+        one[2].setIsSelected(false);
         one[1].getSelectedImageID();
         one[2].getSelectedImageID();
         boolean[] expected = {true, true, false};
