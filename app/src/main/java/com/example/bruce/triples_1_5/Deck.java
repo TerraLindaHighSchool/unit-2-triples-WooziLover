@@ -1,8 +1,13 @@
 package com.example.bruce.triples_1_5;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Deck {
     private Card[] mOrderedDeck;
     private ArrayList<Card> mShuffledDeck;
+    private ArrayList<Card> mCopyOfShuffledDeck;
+    Card card, topCard;
 
     Deck(int numOfCardsInDeck){
         mOrderedDeck = new Card[numOfCardsInDeck + 1];
@@ -10,16 +15,30 @@ public class Deck {
         createShuffledDeck();
     }
     protected void createShuffledDeck(){
+        mCopyOfShuffledDeck = mShuffledDeck;
+        for(int i = 0; i < mOrderedDeck.length; i++){
+            for(int j = 0;i < mOrderedDeck.length; j++){
+                int random = (int)(Math.random() * mOrderedDeck.length);
+         //       mCopyOfShuffledDeck.add(0, random);
+            }
+           // Card rand = mOrderedDeck[i];
+            //copy get this number,replace it with this.
 
+        }
     }
 
-    protected int getNumCardsInDeck(){
-        return mOrderedDeck.length;
+  /* protected int getNumCardsInDeck(){
+        return mShuffledDeck.size();
     }
 
-   /* protected int getTopCard(){
-    }*/
+    protected Card getTopCard(){
+        for(int i = 0; i < mOrderedDeck.length; i++){
+        mShuffledDeck.remove(0);
+        mShuffledDeck[i] = topCard;
+        return topCard;
+        }
 
+*/
             private void populateOrderedDeckWithCards(int numOfCardsInDeck){
         mOrderedDeck[0] = new Card(Card.Shape.NOSHAPE, Card.Color.NOCOLOR,0,0,
                 R.drawable.blank_0_0_0, R.drawable.blank_0_0_0);
