@@ -6,57 +6,59 @@ public class Deck {
     private Card[] mOrderedDeck;
     private ArrayList<Card> mShuffledDeck;
     private ArrayList<Integer> mDeckOfRandom;
-    Deck(int numOfCardsInDeck){
+    private Card mTopCard;
+
+    Deck(int numOfCardsInDeck) {
         mOrderedDeck = new Card[numOfCardsInDeck + 1];
         populateOrderedDeckWithCards(numOfCardsInDeck);
-      //  createShuffledDeck();
+        createShuffledDeck();
     }
 
 
-
-
-   /* protected void createShuffledDeck(){
+    protected void createShuffledDeck() {
         int mDeck = mOrderedDeck.length;
-        int mRandom = (int)(mDeck * Math.random());
+        int mRandom = (int) (mDeck * Math.random());
+        mDeckOfRandom = new ArrayList<>();
         mDeckOfRandom.add(mRandom);
-        for(int i = 0; i < mOrderedDeck.length; i++) {
+        for (int i = 0; i < mOrderedDeck.length; i++) {
             Card mHelper = mShuffledDeck.get(i);
             mShuffledDeck.set(i, mShuffledDeck.get(mRandom));
             mShuffledDeck.set(mRandom, mHelper);
         }
     }
 
-   protected int getNumCardsInDeck(){
-        return mShuffledDeck.size();
+    protected int getNumCardsInDeck(){
+           return mShuffledDeck.size();
     }
 
-    protected Card getTopCard(){
-        for(int i = 0; i < mOrderedDeck.length; i++){
-        mShuffledDeck.remove(0);
-        //return mShuffledDeck(0);
-        }
-*/
+    protected Card getTopCard() {
+            if(mShuffledDeck.size() == 0){
+            return mOrderedDeck[0];
+            }
+        return mShuffledDeck.remove(0);
+        //should create code where if the array.size() == 0, return the mOrderedDeck[0]
+    }
 
-        private void populateOrderedDeckWithCards(int numOfCardsInDeck) {
-        mOrderedDeck[0] = new Card(Card.Shape.NOSHAPE, Card.Color.NOCOLOR,0,0,
+    private void populateOrderedDeckWithCards(int numOfCardsInDeck) {
+        mOrderedDeck[0] = new Card(Card.Shape.NOSHAPE, Card.Color.NOCOLOR, 0, 0,
                 R.drawable.blank_0_0_0, R.drawable.blank_0_0_0);
-        mOrderedDeck[1] = new Card(Card.Shape.CIRCLE, Card.Color.RED,1,0,
+        mOrderedDeck[1] = new Card(Card.Shape.CIRCLE, Card.Color.RED, 1, 0,
                 R.drawable.circle_red_1_0, R.drawable.circle_red_1_0_selected);
-        mOrderedDeck[2] = new Card(Card.Shape.CIRCLE, Card.Color.RED,2,0,
+        mOrderedDeck[2] = new Card(Card.Shape.CIRCLE, Card.Color.RED, 2, 0,
                 R.drawable.circle_red_2_0, R.drawable.circle_red_2_0_selected);
-        mOrderedDeck[3] = new Card(Card.Shape.CIRCLE, Card.Color.RED,3,0,
+        mOrderedDeck[3] = new Card(Card.Shape.CIRCLE, Card.Color.RED, 3, 0,
                 R.drawable.circle_red_3_0, R.drawable.circle_red_3_0_selected);
-        mOrderedDeck[4] = new Card(Card.Shape.CIRCLE, Card.Color.GREEN,1,0,
+        mOrderedDeck[4] = new Card(Card.Shape.CIRCLE, Card.Color.GREEN, 1, 0,
                 R.drawable.circle_green_1_0, R.drawable.circle_green_1_0_selected);
-        mOrderedDeck[5] = new Card(Card.Shape.CIRCLE, Card.Color.GREEN,2,0,
+        mOrderedDeck[5] = new Card(Card.Shape.CIRCLE, Card.Color.GREEN, 2, 0,
                 R.drawable.circle_green_2_0, R.drawable.circle_green_2_0_selected);
-        mOrderedDeck[6] = new Card(Card.Shape.CIRCLE, Card.Color.GREEN,3,0,
+        mOrderedDeck[6] = new Card(Card.Shape.CIRCLE, Card.Color.GREEN, 3, 0,
                 R.drawable.circle_green_3_0, R.drawable.circle_green_3_0_selected);
-        mOrderedDeck[7] = new Card(Card.Shape.CIRCLE, Card.Color.BLUE,1,0,
+        mOrderedDeck[7] = new Card(Card.Shape.CIRCLE, Card.Color.BLUE, 1, 0,
                 R.drawable.circle_blue_1_0, R.drawable.circle_blue_1_0_selected);
-        mOrderedDeck[8] = new Card(Card.Shape.CIRCLE, Card.Color.BLUE,2,0,
+        mOrderedDeck[8] = new Card(Card.Shape.CIRCLE, Card.Color.BLUE, 2, 0,
                 R.drawable.circle_blue_2_0, R.drawable.circle_blue_2_0_selected);
-        mOrderedDeck[9] = new Card(Card.Shape.CIRCLE, Card.Color.BLUE,3,0,
+        mOrderedDeck[9] = new Card(Card.Shape.CIRCLE, Card.Color.BLUE, 3, 0,
                 R.drawable.circle_blue_3_0, R.drawable.circle_blue_3_0_selected);
         mOrderedDeck[10] = new Card(Card.Shape.SQUARE, Card.Color.RED, 1, 0,
                 R.drawable.square_red_1_0, R.drawable.square_red_1_0_selected);
@@ -94,7 +96,7 @@ public class Deck {
                 R.drawable.triangle_blue_2_0, R.drawable.triangle_blue_2_0_selected);
         mOrderedDeck[27] = new Card(Card.Shape.TRIANGLE, Card.Color.BLUE, 3, 0,
                 R.drawable.triangle_blue_3_0, R.drawable.triangle_blue_3_0_selected);
-        if(numOfCardsInDeck > 27) {
+        if (numOfCardsInDeck > 27) {
             mOrderedDeck[28] = new Card(Card.Shape.CIRCLE, Card.Color.RED, 1, 1,
                     R.drawable.circle_red_1_1, R.drawable.circle_red_1_1_selected);
             mOrderedDeck[29] = new Card(Card.Shape.CIRCLE, Card.Color.RED, 2, 1,
@@ -150,7 +152,7 @@ public class Deck {
             mOrderedDeck[54] = new Card(Card.Shape.TRIANGLE, Card.Color.BLUE, 3, 1,
                     R.drawable.triangle_blue_3_1, R.drawable.triangle_blue_3_1_selected);
         }
-        if(numOfCardsInDeck > 54) {
+        if (numOfCardsInDeck > 54) {
             mOrderedDeck[55] = new Card(Card.Shape.CIRCLE, Card.Color.RED, 1, 2,
                     R.drawable.circle_red_1_2, R.drawable.circle_red_1_2_selected);
             mOrderedDeck[56] = new Card(Card.Shape.CIRCLE, Card.Color.RED, 2, 2,

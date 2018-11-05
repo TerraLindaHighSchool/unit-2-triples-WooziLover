@@ -4,18 +4,31 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class DeckTest {
+public class DeckTest{
 
     @Test
     public void createShuffledDeck() {
+        Deck deck = new Deck(81);
+        Card topCard;
+        Card nextCard;
+        for(int i = 0; i < 40; i++) {
+            topCard = deck.getTopCard();
+            nextCard = deck.getTopCard();
+            assertTrue(!topCard.equals(nextCard));
+        }
     }
 
     @Test
     public void getNumCardsInDeck() {
+        Deck deck = new Deck(17);
+
+
     }
 
     @Test
     public void getTopCard() {
-
+        Deck deck = new Deck(81);
+        Card topCard, nextCard;
+        //for(int i = 0; i < ;i++)
+        }
     }
-}
