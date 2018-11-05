@@ -1,6 +1,8 @@
 package com.example.bruce.triples_1_5;
 
-public class Card {
+import java.util.ArrayList;
+
+public class Card extends ArrayList<Integer> {
 
     private Shape mShape;
     private Color mColor;

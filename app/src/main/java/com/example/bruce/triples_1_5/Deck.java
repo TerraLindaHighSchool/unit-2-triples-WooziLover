@@ -1,45 +1,43 @@
 package com.example.bruce.triples_1_5;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Deck {
     private Card[] mOrderedDeck;
     private ArrayList<Card> mShuffledDeck;
-    private ArrayList<Card> mCopyOfShuffledDeck;
-    Card card, topCard;
-
+    private ArrayList<Integer> mDeckOfRandom;
     Deck(int numOfCardsInDeck){
         mOrderedDeck = new Card[numOfCardsInDeck + 1];
         populateOrderedDeckWithCards(numOfCardsInDeck);
-        createShuffledDeck();
+      //  createShuffledDeck();
     }
-    protected void createShuffledDeck(){
-        mCopyOfShuffledDeck = mShuffledDeck;
-        for(int i = 0; i < mOrderedDeck.length; i++){
-            for(int j = 0;i < mOrderedDeck.length; j++){
-                int random = (int)(Math.random() * mOrderedDeck.length);
-         //       mCopyOfShuffledDeck.add(0, random);
-            }
-           // Card rand = mOrderedDeck[i];
-            //copy get this number,replace it with this.
 
+
+
+
+   /* protected void createShuffledDeck(){
+        int mDeck = mOrderedDeck.length;
+        int mRandom = (int)(mDeck * Math.random());
+        mDeckOfRandom.add(mRandom);
+        for(int i = 0; i < mOrderedDeck.length; i++) {
+            Card mHelper = mShuffledDeck.get(i);
+            mShuffledDeck.set(i, mShuffledDeck.get(mRandom));
+            mShuffledDeck.set(mRandom, mHelper);
         }
     }
 
-  /* protected int getNumCardsInDeck(){
+   protected int getNumCardsInDeck(){
         return mShuffledDeck.size();
     }
 
     protected Card getTopCard(){
         for(int i = 0; i < mOrderedDeck.length; i++){
         mShuffledDeck.remove(0);
-        mShuffledDeck[i] = topCard;
-        return topCard;
+        //return mShuffledDeck(0);
         }
-
 */
-            private void populateOrderedDeckWithCards(int numOfCardsInDeck){
+
+        private void populateOrderedDeckWithCards(int numOfCardsInDeck) {
         mOrderedDeck[0] = new Card(Card.Shape.NOSHAPE, Card.Color.NOCOLOR,0,0,
                 R.drawable.blank_0_0_0, R.drawable.blank_0_0_0);
         mOrderedDeck[1] = new Card(Card.Shape.CIRCLE, Card.Color.RED,1,0,
