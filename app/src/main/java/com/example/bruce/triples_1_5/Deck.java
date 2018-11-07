@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Deck {
     private Card[] mOrderedDeck;
-    private ArrayList<Card> mShuffledDeck;
+    private ArrayList<Card> mShuffledDeck= new ArrayList<>();
 
     Deck(int numOfCardsInDeck) {
         mOrderedDeck = new Card[numOfCardsInDeck + 1];
@@ -14,15 +14,24 @@ public class Deck {
 
 
     protected void createShuffledDeck() {
-        int mRandom;
-        for(int i = 0;i <mOrderedDeck.length;i++){
-            mShuffledDeck.add(mOrderedDeck[0]);
+            int mRandom;
+            for(int i = 0; i < mOrderedDeck.length; i++)
+                mShuffledDeck.add(mOrderedDeck[0]);
+
+
             for(int j = 0; j < mOrderedDeck.length;j++){
                 mRandom = (int) (mOrderedDeck.length * Math.random());
-                mShuffledDeck.add(mRandom, mOrderedDeck[j]);
-                mShuffledDeck.remove(i);
+                if(mShuffledDeck.get(mRandom) == mOrderedDeck[0]){
+                    mShuffledDeck.set(mRandom, mOrderedDeck[j]);
+                } else {
+                    j--;
+                }
             }
-        }
+
+    }
+
+    protected Card getCard(int index){
+        return mShuffledDeck.get(index);
     }
 
     protected int getNumCardsInDeck(){
