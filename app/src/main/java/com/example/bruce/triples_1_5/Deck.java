@@ -5,8 +5,6 @@ import java.util.ArrayList;
 public class Deck {
     private Card[] mOrderedDeck;
     private ArrayList<Card> mShuffledDeck;
-    private ArrayList<Integer> mDeckOfRandom;
-    private Card mTopCard;
 
     Deck(int numOfCardsInDeck) {
         mOrderedDeck = new Card[numOfCardsInDeck + 1];
@@ -16,14 +14,14 @@ public class Deck {
 
 
     protected void createShuffledDeck() {
-        int mDeck = mOrderedDeck.length;
-        int mRandom = (int) (mDeck * Math.random());
-        mDeckOfRandom = new ArrayList<>();
-        mDeckOfRandom.add(mRandom);
-        for (int i = 0; i < mOrderedDeck.length; i++) {
-            Card mHelper = mShuffledDeck.get(i);
-            mShuffledDeck.set(i, mShuffledDeck.get(mRandom));
-            mShuffledDeck.set(mRandom, mHelper);
+        int mRandom;
+        for(int i = 0;i <mOrderedDeck.length;i++){
+            mShuffledDeck.add(mOrderedDeck[0]);
+            for(int j = 0; j < mOrderedDeck.length;j++){
+                mRandom = (int) (mOrderedDeck.length * Math.random());
+                mShuffledDeck.add(mRandom, mOrderedDeck[j]);
+                mShuffledDeck.remove(i);
+            }
         }
     }
 
@@ -34,8 +32,9 @@ public class Deck {
     protected Card getTopCard() {
             if(mShuffledDeck.size() == 0){
             return mOrderedDeck[0];
-            }
-        return mShuffledDeck.remove(0);
+          }
+            mShuffledDeck.remove(0);
+            return mShuffledDeck.get(0);
         //should create code where if the array.size() == 0, return the mOrderedDeck[0]
     }
 
