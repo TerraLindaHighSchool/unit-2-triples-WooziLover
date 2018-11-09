@@ -11,36 +11,42 @@ public class GameModel {
     private int mScore, mTriplesRemaining, mLevel;
 
     GameModel(int numOfCardsInDeck, int level){
-
-        mStartTime = System.currentTimeMillis();
-        mTriplesRemaining = numOfCardsInDeck / 3;
-        // to be implemented
+        deck = new Deck(numOfCardsInDeck);
+        mCardOnBoard = new ArrayList<>();
+        mSelectedCards = new ArrayList<>();
     }
 
 /*************************************************
  * Getters and Setters
  *************************************************/
 
-    /*protected  getCardOnBoard(int index){
-
+    protected int getCardOnBoard(int index){
+    index = mCardOnBoard.size();
+    return index;
     }
-    // to be implemented
 
-    getNumOfCardsSelected()
+    protected int getNumOfCardsSelected(){
+        return mSelectedCards.size();
+    }
 
-    getNumOfCardsInDeck( )
+   /* protected int getNumOfCardsInDeck(){
+        return
+        //return mSelectedCards.size();
+    }
+    */
 
-    getSelectedCardIndex(int index){
-    index = mSelectedCards;
-    return mSelectedCards;
+    protected int getSelectedCardIndex(int index){
+    return index;
     }
 
     protected void setStartTime(){
+        mLevel = (int)System.currentTimeMillis();
     }
 
     protected void setTriplesRemaining(){
+        mTriplesRemaining = deck.getNumCardsInDeck() / 3;
     }
-    */
+
 
         /*************************************************
          * Methods that place cards to board
