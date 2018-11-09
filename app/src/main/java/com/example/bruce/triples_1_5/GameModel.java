@@ -12,6 +12,8 @@ public class GameModel {
 
     GameModel(int numOfCardsInDeck, int level){
 
+        mStartTime = System.currentTimeMillis();
+        mTriplesRemaining = numOfCardsInDeck / 3;
         // to be implemented
     }
 
@@ -19,11 +21,30 @@ public class GameModel {
  * Getters and Setters
  *************************************************/
 
+    /*protected  getCardOnBoard(int index){
+
+    }
     // to be implemented
 
-    /*************************************************
-     * Methods that place cards to board
-     *************************************************/
+    getNumOfCardsSelected()
+
+    getNumOfCardsInDeck( )
+
+    getSelectedCardIndex(int index){
+    index = mSelectedCards;
+    return mSelectedCards;
+    }
+
+    protected void setStartTime(){
+    }
+
+    protected void setTriplesRemaining(){
+    }
+    */
+
+        /*************************************************
+         * Methods that place cards to board
+         *************************************************/
     protected void addCardToBoard(){
         // to be implemented
     }

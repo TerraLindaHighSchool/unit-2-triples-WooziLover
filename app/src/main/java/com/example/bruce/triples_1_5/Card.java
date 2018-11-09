@@ -11,12 +11,12 @@ public class Card extends ArrayList<Integer> {
 
 
     public Card(Shape shape, Color color, int number, int alpha, int image, int selectedImageID) {
-        this.mShape = shape;
-        this.mColor = color;
-        this.mNumber = number;
-        this.mAlpha = alpha;
-        this.mImage = image;
-        this.mSelectedImageID = selectedImageID;
+        mShape = shape;
+        mColor = color;
+        mNumber = number;
+        mAlpha = alpha;
+        mImage = image;
+        mSelectedImageID = selectedImageID;
     }
 
     /***************************************
@@ -36,36 +36,36 @@ public class Card extends ArrayList<Integer> {
      **********************************/
 
     protected Shape getShape() {
-        return this.mShape;
+        return mShape;
     }
 
     protected Color getColor(){
-        return this.mColor;
+        return mColor;
     }
 
     protected int getNumber(){
-        return this.mNumber;
+        return mNumber;
     }
 
     protected int getAlpha(){
-        return this.mAlpha;
+        return mAlpha;
     }
 
     protected int getImageID(){
-        return this.mImage;
+        return mImage;
     }
 
     protected int getSelectedImageID(){
-        return this.mSelectedImageID;
+        return mSelectedImageID;
     }
 
     protected boolean getIsSelected(){
-        return this.mIsSelected;
+        return mIsSelected;
     }
 
     protected void setIsSelected(boolean s)
     {
-        this.mIsSelected = s;
+        mIsSelected = s;
 
     }
 }
