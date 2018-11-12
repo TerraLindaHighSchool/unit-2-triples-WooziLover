@@ -12,35 +12,34 @@ public class GameModel {
 
     GameModel(int numOfCardsInDeck, int level){
         deck = new Deck(numOfCardsInDeck);
+        mLevel = level;
         mCardOnBoard = new ArrayList<>();
         mSelectedCards = new ArrayList<>();
+        mScore = 0;
     }
 
-/*************************************************
- * Getters and Setters
- *************************************************/
+    /*************************************************
+     * Getters and Setters
+     *************************************************/
 
-    protected int getCardOnBoard(int index){
-    index = mCardOnBoard.size();
-    return index;
+    protected Card getCardOnBoard(int index){
+        return  mCardOnBoard.get(index);
     }
 
     protected int getNumOfCardsSelected(){
         return mSelectedCards.size();
     }
 
-   /* protected int getNumOfCardsInDeck(){
-        return
-        //return mSelectedCards.size();
+    protected int getNumOfCardsInDeck(){
+        return deck.getNumCardsInDeck();
     }
-    */
 
     protected int getSelectedCardIndex(int index){
-    return index;
+        return mSelectedCards.get(index);
     }
 
     protected void setStartTime(){
-        mLevel = (int)System.currentTimeMillis();
+        mStartTime = (int)System.currentTimeMillis();
     }
 
     protected void setTriplesRemaining(){
@@ -48,11 +47,12 @@ public class GameModel {
     }
 
 
-        /*************************************************
-         * Methods that place cards to board
-         *************************************************/
+    /*************************************************
+     * Methods that place cards to board
+     *************************************************/
     protected void addCardToBoard(){
-        // to be implemented
+        Card mCard = deck.getTopCard();
+        mCardOnBoard.add(mCard);
     }
 
     protected void replaceCardOnBoard(int index){
@@ -79,8 +79,8 @@ public class GameModel {
      * Scoring
      *************************************************/
     protected int updateScore() {
-        // to be implemented
-        return -1; // temporary placeholder until implementation
+        mScore++;
+        return mScore; // temporary placeholder until implementation
     }
 
     /*************************************************
@@ -104,4 +104,3 @@ public class GameModel {
         return message;
     }
 }
-
