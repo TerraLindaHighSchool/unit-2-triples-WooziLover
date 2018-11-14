@@ -15,12 +15,12 @@ public class Deck {
 
     protected void createShuffledDeck() {
             int mRandom;
-            for(int i = 0; i < mOrderedDeck.length; i++)
+            for(int i = 0; i < mOrderedDeck.length - 1; i++)
                 mShuffledDeck.add(mOrderedDeck[0]);
 
 
             for(int j = 0; j < mOrderedDeck.length;j++){
-                mRandom = (int) (mOrderedDeck.length * Math.random());
+                mRandom = (int) ((mOrderedDeck.length - 1) * Math.random());
                 if(mShuffledDeck.get(mRandom) == mOrderedDeck[0]){
                     mShuffledDeck.set(mRandom, mOrderedDeck[j]);
                 } else {
@@ -39,11 +39,10 @@ public class Deck {
     }
 
     protected Card getTopCard() {
-            if(mShuffledDeck.size() == 0){
-            return mOrderedDeck[0];
-          }
-            mShuffledDeck.remove(0);
-            return mShuffledDeck.get(0);
+            if(mShuffledDeck.size() == 0)
+                return mOrderedDeck[0];
+            else
+                return mShuffledDeck.remove(0);
         //should create code where if the array.size() == 0, return the mOrderedDeck[0]
     }
 
