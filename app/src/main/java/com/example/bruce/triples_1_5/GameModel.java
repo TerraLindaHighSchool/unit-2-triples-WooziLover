@@ -56,7 +56,10 @@ public class GameModel {
     }
 
     protected void replaceCardOnBoard(int index){
-        // to be implemented
+        Card mCard = deck.getTopCard();
+        mCardOnBoard.get(index);
+        mCardOnBoard.set(index, mCard);
+
     }
 
     /*************************************************
@@ -64,15 +67,19 @@ public class GameModel {
      *************************************************/
 
     protected void addSelectedCardIndex(int cardIndex){
-        // to be implemented
+        mSelectedCards.add(cardIndex);
     }
 
     protected void removeSelectedCardIndex(int cardIndex){
-        // to be implemented
+        mSelectedCards.remove(cardIndex);
     }
 
+    //Check to make sure this is correct
+
     protected void resetSelectedCardIndices(){
-        // to be implemented
+        for(int i = 0; i < mSelectedCards.size(); i++){
+            mSelectedCards.remove(mSelectedCards);
+        }
     }
 
     /*************************************************
