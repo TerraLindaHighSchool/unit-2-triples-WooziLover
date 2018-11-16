@@ -12,7 +12,7 @@ public class Deck {
         createShuffledDeck();
     }
 
-
+    //input while loop
     protected void createShuffledDeck() {
             int mRandom;
             for(int i = 0; i < mOrderedDeck.length - 1; i++)

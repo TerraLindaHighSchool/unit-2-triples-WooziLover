@@ -58,7 +58,6 @@ public class GameModel {
 
     protected void replaceCardOnBoard(int index) {
         Card mCard = deck.getTopCard();
-      //  mCardOnBoard.get(index);
         mCardOnBoard.set(index, mCard);
     }
 
@@ -77,7 +76,7 @@ public class GameModel {
     //Check to make sure this is correct
 
     protected void resetSelectedCardIndices() {
-        for (int i = 0; i < mSelectedCards.size(); i++) {
+        for (int i = 0; i < 3; i++) {
             mSelectedCards.remove(0);
         }
     }
@@ -93,20 +92,13 @@ public class GameModel {
     /*************************************************
      * Methods that determine play
      *************************************************/
-
-    // use a return
+    
     protected boolean isTriple(int firstCard, int secondCard, int thirdCard) {
-       /* Card[] mCards = {getCardOnBoard(firstCard), getCardOnBoard(secondCard), getCardOnBoard(thirdCard)};
-        if ((mCards[0].getShape().ordinal() + mCards[1].getShape().ordinal() + mCards[2].getShape().ordinal()) % 3 == 0) {
-            if ((mCards[0].getColor().ordinal() + mCards[1].getColor().ordinal() + mCards[2].getColor().ordinal()) % 3 == 0) {
-                if ((mCards[0].getNumber() + mCards[1].getNumber() + mCards[2].getNumber()) % 3 == 0) {
-                    if ((mCards[0].getAlpha() + mCards[1].getAlpha() + mCards[2].getAlpha()) % 3 == 0) {
-                        return true;
-                    }
-                }
-            }
-        }*/
-        return true;
+        Card[] mCards = {getCardOnBoard(firstCard), getCardOnBoard(secondCard), getCardOnBoard(thirdCard)};
+        return (mCards[0].getShape().ordinal() + mCards[1].getShape().ordinal() + mCards[2].getShape().ordinal()) % 3 == 0
+                && (mCards[0].getColor().ordinal() + mCards[1].getColor().ordinal() + mCards[2].getColor().ordinal()) % 3 == 0
+                && (mCards[0].getNumber() + mCards[1].getNumber() + mCards[2].getNumber()) % 3 == 0
+                && ((mCards[0].getAlpha() + mCards[1].getAlpha() + mCards[2].getAlpha()) % 3 == 0);
     }
 
         protected boolean playIsPossible () {
