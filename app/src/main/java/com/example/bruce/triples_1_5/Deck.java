@@ -15,11 +15,10 @@ public class Deck {
     //input while loop
     protected void createShuffledDeck() {
             int mRandom;
-            for(int i = 0; i < mOrderedDeck.length - 1; i++)
+            for(int i = 1; i < mOrderedDeck.length; i++)
                 mShuffledDeck.add(mOrderedDeck[0]);
 
-
-            for(int j = 0; j < mOrderedDeck.length;j++){
+            for(int j = 1; j < mOrderedDeck.length;j++){
                 mRandom = (int) ((mOrderedDeck.length - 1) * Math.random());
                 if(mShuffledDeck.get(mRandom) == mOrderedDeck[0]){
                     mShuffledDeck.set(mRandom, mOrderedDeck[j]);
@@ -27,7 +26,6 @@ public class Deck {
                     j--;
                 }
             }
-
     }
 
     protected Card getCard(int index){
