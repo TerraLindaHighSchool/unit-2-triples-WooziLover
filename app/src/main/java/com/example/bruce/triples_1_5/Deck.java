@@ -12,7 +12,6 @@ public class Deck {
         createShuffledDeck();
     }
 
-    //input while loop
     protected void createShuffledDeck() {
             int mRandom;
             for(int i = 1; i < mOrderedDeck.length; i++)
