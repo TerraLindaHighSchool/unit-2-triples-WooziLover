@@ -22,7 +22,7 @@ public class GameModel {
     /*************************************************
      * Getters and Setters
      *************************************************/
-
+//
     protected Card getCardOnBoard(int index) {
         return mCardOnBoard.get(index);
     }
@@ -85,9 +85,10 @@ public class GameModel {
      * Scoring
      *************************************************/
     protected int updateScore() {
-        long endTime = System.currentTimeMillis();
+        mScore++;
+        /*long endTime = System.currentTimeMillis();
         int mTime = (int) (endTime - mStartTime) / 1000;
-        mScore += mTime * mLevel;
+        mScore += mTime * mLevel;*/
         return mScore;
     }
 
