@@ -19,12 +19,20 @@ public class Deck {
 
             for(int j = 1; j < mOrderedDeck.length;j++){
                 mRandom = (int) ((mOrderedDeck.length - 1) * Math.random());
+                mShuffledDeck.set(mRandom, mOrderedDeck[j]);
                 if(mShuffledDeck.get(mRandom) == mOrderedDeck[0]){
                     mShuffledDeck.set(mRandom, mOrderedDeck[j]);
                 } else {
                     j--;
                 }
             }
+          /*  for(int j = 1; j < mOrderedDeck.length;j++){
+            while (mOrderedDeck.length > 0) {
+                mRandom = (int) ((mOrderedDeck.length - 1) * Math.random() + 1);
+                mShuffledDeck.set(mRandom, mOrderedDeck[j]);
+            }
+        }
+        */
     }
 
     protected Card getCard(int index){
@@ -36,7 +44,7 @@ public class Deck {
     }
 
     protected Card getTopCard() {
-            if(mShuffledDeck.size() == 0)
+            if(mShuffledDeck.size() > 0)
                 return mOrderedDeck[0];
             else
                 return mShuffledDeck.remove(0);

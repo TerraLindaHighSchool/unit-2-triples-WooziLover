@@ -85,13 +85,10 @@ public class GameModel {
      * Scoring
      *************************************************/
     protected int updateScore() {
-        setStartTime();
         long endTime = System.currentTimeMillis();
-        int mTime = (int) (endTime - mStartTime);
-        if(mLevel == 1){
-           // mTime +=
-        }
-        return mScore; // temporary placeholder until implementation
+        int mTime = (int) (endTime - mStartTime) / 1000;
+        mScore += mTime * mLevel;
+        return mScore;
     }
 
     /*************************************************
@@ -107,7 +104,8 @@ public class GameModel {
     }
 
         protected boolean playIsPossible () {
-            // to be implemented
+          /*  int mCardOne, mCardTwo, mCardThree;
+            Card[] mCards = {getCardOnBoard(mCardOne), getCardOnBoard(mCardTwo), getCardOnBoard(mCardThree)};*/
             return true;  // temporary placeholder until implementation
         }
 
