@@ -12,22 +12,19 @@ public class Deck {
         createShuffledDeck();
     }
 
-
     protected void createShuffledDeck() {
-            int mRandom;
-            for(int i = 0; i < mOrderedDeck.length; i++)
-                mShuffledDeck.add(mOrderedDeck[0]);
+        int mRandom;
+        for(int i = 1; i < mOrderedDeck.length; i++)
+            mShuffledDeck.add(mOrderedDeck[0]);
 
-
-            for(int j = 0; j < mOrderedDeck.length;j++){
-                mRandom = (int) (mOrderedDeck.length * Math.random());
-                if(mShuffledDeck.get(mRandom).equals(mOrderedDeck[0])){
-                    mShuffledDeck.set(mRandom, mOrderedDeck[j]);
-                } else {
-                    j--;
-                }
+        for(int j = 1; j < mOrderedDeck.length;j++){
+            mRandom = (int) ((mOrderedDeck.length - 1) * Math.random());
+            if(mShuffledDeck.get(mRandom) == mOrderedDeck[0]){
+                mShuffledDeck.set(mRandom, mOrderedDeck[j]);
+            } else {
+                j--;
             }
-
+        }
     }
 
     protected Card getCard(int index){
@@ -35,15 +32,14 @@ public class Deck {
     }
 
     protected int getNumCardsInDeck(){
-           return mShuffledDeck.size();
+        return mShuffledDeck.size();
     }
 
     protected Card getTopCard() {
-            if(mShuffledDeck.size() == 0){
+        if(mShuffledDeck.size() == 0)
             return mOrderedDeck[0];
-          }
-            mShuffledDeck.remove(0);
-            return mShuffledDeck.get(0);
+        else
+            return mShuffledDeck.remove(0);
         //should create code where if the array.size() == 0, return the mOrderedDeck[0]
     }
 

@@ -24,6 +24,7 @@ public class GameModel {
      *************************************************/
 //
     protected Card getCardOnBoard(int index) {
+
         return mCardOnBoard.get(index);
     }
 
@@ -85,10 +86,15 @@ public class GameModel {
      * Scoring
      *************************************************/
     protected int updateScore() {
-        mScore++;
-        /*long endTime = System.currentTimeMillis();
-        int mTime = (int) (endTime - mStartTime) / 1000;
-        mScore += mTime * mLevel;*/
+        long mEndTime = System.currentTimeMillis();
+        //int mTime = (int) (mStartTime - endTime) / 1000;
+        int mTime = (int) (mEndTime - mStartTime);
+        if(mLevel == 1){
+            mScore += 1;
+        }
+        if(mLevel >= 2){
+            mScore += mTime / 1000;
+        }
         return mScore;
     }
 
@@ -105,8 +111,17 @@ public class GameModel {
     }
 
         protected boolean playIsPossible () {
-          /*  int mCardOne, mCardTwo, mCardThree;
-            Card[] mCards = {getCardOnBoard(mCardOne), getCardOnBoard(mCardTwo), getCardOnBoard(mCardThree)};*/
+            /*int firstCard = 0, secondCard = 0, thirdCard = 0;
+            for(int i = 0; i < deck.getNumCardsInDeck();i++){
+                firstCard = i;
+                for(int j = 0; j < deck.getNumCardsInDeck();i++){
+                    secondCard = j;
+                    for(int w = 0; w < deck.getNumCardsInDeck();w++){
+                        thirdCard = 0;
+                    }
+                }
+            }
+            Card[] mCards = {getCardOnBoard(firstCard), getCardOnBoard(secondCard), getCardOnBoard(thirdCard)};*/
             return true;  // temporary placeholder until implementation
         }
 
