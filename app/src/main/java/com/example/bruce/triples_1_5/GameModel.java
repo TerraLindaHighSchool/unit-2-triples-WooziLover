@@ -49,9 +49,9 @@ public class GameModel {
     }
 
 
-    /*************************************************
+    /**************************************************
      * Methods that place cards to board
-     *************************************************/
+     **************************************************/
     protected void addCardToBoard() {
         Card mCard = deck.getTopCard();
         mCardOnBoard.add(mCard);
