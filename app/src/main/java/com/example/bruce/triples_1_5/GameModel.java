@@ -87,7 +87,6 @@ public class GameModel {
      *************************************************/
     protected int updateScore() {
         long mEndTime = System.currentTimeMillis();
-        //int mTime = (int) (mStartTime - endTime) / 1000;
         int mTime = (int) (mEndTime - mStartTime);
         if(mLevel == 1){
             mScore += 1;
